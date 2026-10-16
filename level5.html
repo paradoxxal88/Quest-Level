@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Level 5</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        background-image: linear-gradient(to right, purple, pink);
+      }
+
+      .container {
+        margin-top: 50px;
+        background-color: rgb(210, 201, 190);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 20px 15px rgb(22, 21, 21);
+      }
+
+      .card {
+        background-color: rgba(174, 87, 163, 0.292);
+        border-radius: 15px;
+      }
+
+      .btn:hover {
+        background-color: #886688;
+        color: white;
+        transform: scale(1);
+      }
+
+      .coin-display {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-5">
+          <div class="card shadow-lg">
+            <div class="card-body">
+              <span class="badge bg-primary">Level 5</span>
+              <h1 class="h4 fw-bold mt-2">Counter: Coins</h1>
+              <p class="small mb-4">
+                Use + and - buttons. Coins cannot go below 0.
+              </p>
+
+              <div
+                class="d-flex justify-content-between align-items-center mb-4"
+              >
+                <button
+                  class="btn btn-outline-secondary btn-lg"
+                  onclick="decreaseCoins()"
+                >
+                  -1
+                </button>
+                <h2 class="h3 fw-bold mb-0">
+                  Coins: <span id="coinCount">0</span>
+                </h2>
+                <button
+                  class="btn btn-outline-secondary btn-lg"
+                  onclick="increaseCoins()"
+                >
+                  +1
+                </button>
+              </div>
+
+              <p class="text-muted small text-center mb-4">
+                Keep clicking and take a screenshot when coins changed.
+              </p>
+
+              <div class="d-flex gap-2">
+                <button
+                  class="btn btn-dark w-50"
+                  onclick="window.location.href = 'level4.html'"
+                >
+                  Back
+                </button>
+                <button
+                  class="btn btn-primary w-50"
+                  onclick="window.location.href = 'level6.html'"
+                >
+                  Next Level
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-center text-muted small mt-3 mb-0">
+            Screenshot #5: Coin value changed (not 0).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let coins = 0;
+
+      function increaseCoins() {
+        coins++;
+        updateDisplay();
+      }
+
+      function decreaseCoins() {
+        if (coins > 0) {
+          coins--;
+          updateDisplay();
+        }
+      }
+
+      function updateDisplay() {
+        document.getElementById("coinCount").textContent = coins;
+      }
+    </script>
+  </body>
+</html>
